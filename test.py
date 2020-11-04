@@ -9,3 +9,7 @@ body = {
 }
 response = requests.post(url, data=body)
 print(response.json())
+
+def test_petal():
+    print("Test petal")
+    assert response.json() == "iris-setosa" or "iris-versicolor" or 'iris-virginica'
