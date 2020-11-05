@@ -1,14 +1,14 @@
 # app.py
-from flask import Flask
-from flask_restful import Api, Resource, reqparse
-import joblib
-import numpy as np
-from predict import Predict
+from flask import Flask, Blueprint
+from flask_restful import Api
+from resources.routes import initialize_routes
 
 APP = Flask(__name__)
+api_bp = Blueprint('api', __name__)
 API = Api(APP)
 
-API.add_resource(Predict, '/predict')
+initialize_routes(API)
+APP.register_blueprint(api_bp)
 
 if __name__ == '__main__':
     APP.run(debug=True, port='1080')

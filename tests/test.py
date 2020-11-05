@@ -1,4 +1,6 @@
+
 import requests
+import pytest
 
 url = 'http://127.0.0.1:1080/predict'  # localhost and the defined port + endpoint
 body = {
@@ -9,6 +11,7 @@ body = {
 }
 response = requests.post(url, data=body)
 print(response.json())
+
 
 def test_petal():
     print("Test petal")
