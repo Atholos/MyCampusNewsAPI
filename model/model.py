@@ -38,4 +38,4 @@ if __name__ == '__main__':
     mdl = train(X,y)
 
     # serialize model
-    joblib.dump(mdl, 'iris.mdl')
+    joblib.dump(mdl, './iris.mdl')

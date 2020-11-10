@@ -3,7 +3,7 @@ from flask_restful import Api, Resource, reqparse
 import joblib
 import numpy as np
 
-IRIS_MODEL = joblib.load('model\iris.mdl')
+IRIS_MODEL = joblib.load('iris.mdl')
 
 
 class Predict(Resource):
