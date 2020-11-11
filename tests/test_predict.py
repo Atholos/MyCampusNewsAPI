@@ -29,6 +29,10 @@ def test_predictnot(client):
     res = client.post(url_for("predict"), data=body)
     assert res is not None
 
+def test_predictrandom(client):
+    res = client.post(url_for("predict"), data=body)
+    assert res != "Random words"
+
 def test_predict(client):
     res = client.post(url_for("predict"), data=body)
     assert res == "iris-setosa" or "iris-versicolor" or "iris-virginica"

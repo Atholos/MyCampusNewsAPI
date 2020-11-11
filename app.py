@@ -11,4 +11,4 @@ initialize_routes(API)
 APP.register_blueprint(api_bp)
 
 if __name__ == '__main__':
-    APP.run(debug=True, port='1080')
+    APP.run(debug=False, port='1080')
