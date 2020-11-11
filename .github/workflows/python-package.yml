@@ -10,7 +10,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  build-and-deploy:
 
     runs-on: ubuntu-latest
     strategy:
@@ -40,4 +40,8 @@ jobs:
         pip install pytest-cov
         pip install pytest-xdist
         pip install pytest-flask
-        py.test --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
+        py.test --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html    
+     - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
