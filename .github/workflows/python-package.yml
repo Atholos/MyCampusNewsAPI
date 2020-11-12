@@ -65,4 +65,4 @@ jobs:
             # creating a new image tag for version control
             docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/newsapi:${{ github.sha }}
             # always updating the latest image for continuous deployment
-            docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/newsapi:latest
+            docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/newsapi:${latest}
