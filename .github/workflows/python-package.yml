@@ -41,9 +41,6 @@ jobs:
         py.test --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html    
   build-and-deploy-container:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: [3.6, 3.7, 3.8]
     needs: [test]
     steps:
       - uses: actions/checkout@v2
@@ -61,8 +58,8 @@ jobs:
           # Container registry server url
           login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}  
       - run: |
-            docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/newsapi:${{ github.sha }}
-            # creating a new image tag for version control
+            # building creating a new image tags for version control
+            docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/newsapi:${{ github.sha }} -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/newsapi:latest
             docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/newsapi:${{ github.sha }}
-            # always updating the latest image for continuous deployment
-            docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/newsapi:${latest}
+            docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/newsapi:latest
+            
