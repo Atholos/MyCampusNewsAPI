@@ -62,4 +62,7 @@ jobs:
           login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}  
       - run: |
             docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/newsapi:${{ github.sha }}
+            # creating a new image tag for version control
             docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/newsapi:${{ github.sha }}
+            # always updating the latest image for continuous deployment
+            docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/newsapi:${{ latest }}
