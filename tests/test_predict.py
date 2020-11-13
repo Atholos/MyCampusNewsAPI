@@ -2,18 +2,6 @@
 from flask import url_for, Response
 import pytest
 
-'''
-url = 'http://127.0.0.1:1080/predict'  # localhost and the defined port + endpoint
-
-response = requests.post(url, data=body)
-print(response.json())
-
-
-def test_petal():
-    print("Test petal")
-    assert response.json() == "iris-setosa" or "iris-versicolor" or 'iris-virginica'
-'''
-
 body = {
     "petal_length": 4,
     "sepal_length": 4,

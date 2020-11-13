@@ -1,9 +1,5 @@
 from flask import Flask
 from flask_restful import Api, Resource, reqparse
-import joblib
-import numpy as np
-
-#IRIS_MODEL = joblib.load('iris.mdl')
 
 
 class Predict(Resource):
@@ -26,3 +22,4 @@ class Predict(Resource):
         ##{'Prediction': IRIS_MODEL.predict([X_new])[0]}
 
         return out, 200
+        

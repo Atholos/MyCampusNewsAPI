@@ -6,6 +6,6 @@ class Home(Resource):
 
     @staticmethod
     def get():
-
-        out = {"Home": "Home"}
+        out = {"Hello": "Welcome to homepage!"}
         return out, 200
+        
