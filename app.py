@@ -1,14 +1,7 @@
 # app.py
-from flask import Flask, Blueprint
-from flask_restful import Api
-from resources.routes import initialize_routes
+from app import create_app
 
-APP = Flask(__name__)
-api_bp = Blueprint('api', __name__)
-API = Api(APP)
+app = create_app("config.default")
 
-initialize_routes(API)
-APP.register_blueprint(api_bp)
-
-if __name__ == '__main__':
-    APP.run()
+if __name__ == "__main__":
+    app.run()

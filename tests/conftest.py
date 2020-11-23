@@ -1,7 +1,7 @@
 import pytest
-from app import APP
+from app import create_app
 
 @pytest.fixture
 def app():
-    myapp = APP
-    return myapp
+    app = create_app("config.default")
+    return app
