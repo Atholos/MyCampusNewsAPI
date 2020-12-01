@@ -1,7 +1,12 @@
+import os
+
+TESTING = False
 DEBUG = False # Turns on debugging features in Flask
 BCRYPT_LOG_ROUNDS = 12 # Configuration for the Flask-Bcrypt extension
-SQLALCHEMY_DATABASE_URI = "postgresql://NMC_News_API%40nmcmycampusdb:G4n1bo!H30Z$@nmcmycampusdb.postgres.database.azure.com/NMC_Innovation_Database" #Database url
-CONTAINER_NAME = "testfileblob" # Azure Container name
-STORAGE_ACCOUNT = "nmcinnovationstorage"  # Azure account name
-STORAGE_KEY = "ypO3eQIw4ENp2KGn7piyVAC+Aaujgg/qa27sv7FWEm8IAtEcbd4vPNC4sxdRAZ1/UEuhlWot7cDKn7W6wR2aGQ=="   # Azure Storage account access key 
-STORAGE_CONNECTION_STRING = "DefaultEndpointsProtocol=https;AccountName=nmcinnovationstorage;AccountKey=ypO3eQIw4ENp2KGn7piyVAC+Aaujgg/qa27sv7FWEm8IAtEcbd4vPNC4sxdRAZ1/UEuhlWot7cDKn7W6wR2aGQ==;EndpointSuffix=core.windows.net"
+ENV = "production"
+SQLALCHEMY_DATABASE_URI = os.environ.get("PROD_DATABASE_URL") #Database url
+CONTAINER_NAME = os.environ.get("NEWS_CONTAINER_NAME") # Azure Container name
+IMAGE_CONTAINER_NAME = os.environ.get("IMAGE_CONTAINER_NAME") # Azure Container name
+STORAGE_ACCOUNT = os.environ.get("STORAGE_ACCOUNT")  # Azure account name
+STORAGE_KEY = os.environ.get("STORAGE_KEY")   # Azure Storage account access key 
+CONNECTION_STRING = os.environ.get("CONNECTION_STRING")

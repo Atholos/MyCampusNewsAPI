@@ -11,8 +11,9 @@ from flask import current_app,g
 
 class Upload_utils():
 
-    #APP = current_app
-    #client = ContainerClient.from_connection_string(APP.config["CONNECTION_STRING"], container_name=APP.config["CONTAINER_NAME"])
+    APP = current_app
+    #print(current_app.config["DEBUG"])
+    client = ContainerClient.from_connection_string(APP.config["CONNECTION_STRING"], container_name=APP.config["CONTAINER_NAME"])
 
     def upload(source, dest):
         '''

@@ -1,8 +1,9 @@
 import os
 
 DEBUG = True # Turns on debugging features in Flask
+TESTING = True
 BCRYPT_LOG_ROUNDS = 12 # Configuration for the Flask-Bcrypt extension
-ENV = "development"
+ENV = "testing"
 SQLALCHEMY_DATABASE_URI = os.environ.get("DEV_DATABASE_URL") #Database url
 CONTAINER_NAME = os.environ.get("TEST_CONTAINER_NAME") # Azure Container name
 IMAGE_CONTAINER_NAME = os.environ.get("TEST_CONTAINER_NAME") # Azure Container name
