@@ -5,14 +5,14 @@ from flask_restful import Api
 from azure.storage.blob import ContainerClient
 
 
-def create_app(config):
+def create_app():
 
     # Creating flask application and setting the correct configurations
     app = Flask(__name__)
     #print("config: ")
     app.config.from_object("config.default")
-    #app.config.from_pyfile(config)
-    #app.config.from_envvar('YOURAPPLICATION_SETTINGS')
+    #app.config.from_pyfile(myconfig)
+    app.config.from_envvar("APP_CONFIG")
 
     # Initializing database connection
     from app.model.db import initialize_db
