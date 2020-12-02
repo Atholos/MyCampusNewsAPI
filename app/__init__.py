@@ -12,7 +12,7 @@ def create_app():
     #print("config: ")
     app.config.from_object("config.default")
     #app.config.from_pyfile(myconfig)
-    app.config.from_envvar("APP_CONFIG")
+    #app.config.from_envvar("APP_CONFIG")
 
     # Initializing database connection
     from app.model.db import initialize_db
