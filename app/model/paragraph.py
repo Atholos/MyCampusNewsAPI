@@ -5,12 +5,14 @@ class Paragraph(db.Model):
     text = db.Column(db.String(500), unique=False)
     style = db.Column(db.String(120), unique=False)
     article_id = db.Column(db.Integer, db.ForeignKey('article.id'))
-    img_id = db.Column(db.String(200), db.ForeignKey('image.id'))
+    img_id = db.Column(db.Integer, db.ForeignKey('image.id'))
+    order_nr = db.Column(db.Integer)
 
-    def __init__(self, text, style, articleid, imageid):
+    def __init__(self, text, style, articleid, imageid, ordernr):
         self.text = filename
         self.style = style
         self.article_id = articleid
         self.img_id = imageid
+        self.order_nr = ordernr
     def __repr__(self):
         return '<Image %r>' % self.filename

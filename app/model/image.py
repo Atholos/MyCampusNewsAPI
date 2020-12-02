@@ -6,7 +6,6 @@ class Image(db.Model):
     filename = db.Column(db.String(80), unique=True)
     url = db.Column(db.String(120), unique=True)
     container = db.Column(db.String(120), unique=False)
-    article_id = db.Column(db.Integer, db.ForeignKey('article.id'))
     title = db.Column(db.String(200), unique=False)
 
     def __init__(self, filename, url, container, articleid, title):

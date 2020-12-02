@@ -1,7 +1,6 @@
 from .db import db
 
 class Link(db.Model):
-
     id = db.Column(db.Integer, primary_key=True)
     paragraph_id = db.Column(db.Integer, db.ForeignKey('paragraph.id'))
     link = db.Column(db.String(200))
