@@ -10,6 +10,7 @@ from app.model.paragraph import Paragraph
 
 app = create_app()
 #cli = FlaskGroup(app)
+
 '''
 @cli.command("create_db")
 def create_db():

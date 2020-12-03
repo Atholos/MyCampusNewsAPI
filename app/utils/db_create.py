@@ -17,11 +17,11 @@ class DBCreate():
         return author
 
     def create_article(self, title, description, highlight, authorid):
-        self.article = Article(title, description, highlight, authorid)
+        article = Article(title, description, highlight, authorid)
         print("Creating the article")
         db.session.add(article)
         db.session.commit()
-        return self.article.id
+        return article
     
     def create_image(self, filename, url, container, articleid, imgtitle):
         image = Image(filename, url , container , articleid, imgtitle)
@@ -35,8 +35,8 @@ class DBCreate():
         db.session.commit()
         return paragraph
 
-    def create_link(self,text , style, link, link_keyword):
-        link = Link(text,style,link,link_keyword)
+    def create_link(self, paragraphid, link, link_keyword):
+        link = Link(paragraphid, link,link_keyword)
         db.session.add(link)
         db.session.commit()
         return link

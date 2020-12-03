@@ -26,6 +26,7 @@ class Parse_News():
             self.newsItem["paragraphs"][i] = newpara
             i += 1
         rels = document.part.rels
+        print(self.newsItem)
         for rel in rels:
             if rels[rel].reltype == RT.HYPERLINK:
                 print("link: ", rel, "url: ", rels[rel]._target)

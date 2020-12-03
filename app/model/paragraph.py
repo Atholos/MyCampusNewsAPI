@@ -1,15 +1,16 @@
 from .db import db
 
 class Paragraph(db.Model):
+
     id = db.Column(db.Integer, primary_key=True)
-    text = db.Column(db.String(500), unique=False)
+    text = db.Column(db.String(1000), unique=False)
     style = db.Column(db.String(120), unique=False)
     article_id = db.Column(db.Integer, db.ForeignKey('article.id'))
     img_id = db.Column(db.Integer, db.ForeignKey('image.id'))
     order_nr = db.Column(db.Integer)
 
     def __init__(self, text, style, articleid, imageid, ordernr):
-        self.text = filename
+        self.text = text
         self.style = style
         self.article_id = articleid
         self.img_id = imageid

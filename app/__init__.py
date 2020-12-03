@@ -28,9 +28,10 @@ def create_app():
         initialize_routes(api)
         #print(current_app.config)
         from app.utils.upload_utils import Upload_utils
-        from app.model.db import create_db
+        from app.utils.create_article import CreateArticle
+        from app.model.db import db, create_db
         create_db()
-       
+
         '''
         # Register Blueprints
         app.register_blueprint(auth.auth_bp)
