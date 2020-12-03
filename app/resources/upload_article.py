@@ -9,6 +9,7 @@ import os
 from azure.storage.blob import ContainerClient
 import uuid
 from app.utils.upload_utils import Upload_utils
+from app.utils.create_article import CreateArticle
 
 
 
@@ -32,7 +33,9 @@ id = uuid.uuid1()
 class UploadArticle(Resource):
 
     def post(self):
+        create = CreateArticle()
         args = parser.parse_args()
         print(args)
-        return args["paragraphs"]["1"]
+        data = create.create_newsitem()
+        return data["highlight"]
         
