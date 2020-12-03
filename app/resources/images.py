@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, current_app
 from flask_restful import Api, Resource, reqparse, request, abort
 import werkzeug
 from werkzeug.utils import secure_filename
@@ -7,15 +7,16 @@ import string
 import random
 import os
 from azure.storage.blob import ContainerClient, generate_blob_sas, BlobSasPermissions
+
 import uuid
 from datetime import datetime, timedelta
 
 parser = reqparse.RequestParser()
 parser.add_argument("blob", type=str, help="Name of the blob needed", required=True)
-container_name = "testfileblob"
-account_name = "nmcinnovationstorage"
-account_key = "ypO3eQIw4ENp2KGn7piyVAC+Aaujgg/qa27sv7FWEm8IAtEcbd4vPNC4sxdRAZ1/UEuhlWot7cDKn7W6wR2aGQ=="
-container_client = ContainerClient.from_connection_string("DefaultEndpointsProtocol=https;AccountName=nmcinnovationstorage;AccountKey=ypO3eQIw4ENp2KGn7piyVAC+Aaujgg/qa27sv7FWEm8IAtEcbd4vPNC4sxdRAZ1/UEuhlWot7cDKn7W6wR2aGQ==;EndpointSuffix=core.windows.net", container_name=container_name)
+container_name = current_app.config["CONTAINER_NAME"]
+account_name = current_app.config["STORAGE_ACCOUNT"]
+account_key = current_app.config["STORAGE_KEY"]
+container_client = ContainerClient.from_connection_string(current_app.config["CONNECTION_STRING"], container_name=container_name)
 client = container_client
 id = uuid.uuid1()
 

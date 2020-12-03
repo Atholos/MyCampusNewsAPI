@@ -29,6 +29,7 @@ def create_app():
         #print(current_app.config)
         from app.utils.upload_utils import Upload_utils
         from app.utils.create_article import CreateArticle
+        from app.utils import build_article
         from app.model.db import db, create_db
         create_db()
 

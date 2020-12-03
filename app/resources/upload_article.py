@@ -90,95 +90,95 @@ class UploadArticle(Resource):
                     "imgTitle": None,
                     "style": "Normal"
             },
-            "8": {
+            "7": {
                 "text":  "by Country Senior Officer Tommi Uitto and Site Heads Vesa Kohtamäki, Erja Sankari and Petri Ahokas",
                     "imgUrl": None,
                     "imgTitle": None,
                     "style": "Normal"
             },
-            "9": {
+            "8": {
                 "text": "André’s take on Finns & Christmas by André Noël Chaker",
                     "imgUrl": None,
                     "imgTitle": None,
                     "style": "Normal"
             },
-            "10": {
+            "9": {
                 "text": "Christmas music from Nokia sites in Finland by Nokia employees",
                     "imgUrl": None,
                     "imgTitle": None,
                     "style": "Normal"
             },
-            "11": {
+            "10": {
                 "text":
                 "Stand-up show by Jaakko Saariluoma",
                     "imgUrl": None,
                     "imgTitle": None,
                     "style": "Normal"
             },
-            "12": {
+            "11": {
                 "text":
                     "Take a sneak peek on Jaakko’s greetings to our Nokia employees here.",
                     "imgUrl": None,
                     "imgTitle": None,
                     "style": "Normal"
             },
-            "13": {
+            "12": {
                 "text":
                     "This is an internal event dedicated for Nokia employees in Finland. Join us for a fun and relaxed session!",
                     "imgUrl": None,
                     "imgTitle": None,
                     "style": "Normal"
             },
-            "14": {
+            "13": {
                 "text": "Welcome!",
                     "imgUrl": None,
                     "imgTitle": None,
                     "style": "Normal"
             },
-            "15": {
+            "14": {
                 "text":
                     "Tip! You may want to consider arranging your own virtual Christmas get-together with your team right after this show.",
                     "imgUrl": None,
                     "imgTitle": None,
                     "style": "Normal"
             },
-            "16": {
+            "15": {
                 "text": "Br,",
                     "imgUrl": None,
                     "imgTitle": None,
                     "style": "Normal"
             },
-            "17": {
+            "16": {
                 "text": "Finland Communications",
                     "imgUrl": None,
                     "imgTitle": None,
                     "style": "Normal"
             },
-            "18": {
+            "17": {
                 "text": "How to join the session:",
                     "imgUrl": None,
                     "imgTitle": None,
                     "style": "Normal"
             },
-            "19": {
+            "18": {
                 "text": "The session is a live stream. A recording of the session will be made available soon afterwards",
                     "imgUrl": None,
                     "imgTitle": None,
                     "style": "Normal"
             },
-            "20": {
+            "19": {
                 "text": "The live stream will be available here.",
                     "imgUrl": None,
                     "imgTitle": None,
                     "style": "List Paragraph"
             },
-            "21": {
+            "20": {
                 "text": "Password for the session is: NokiaFinland",
                     "imgUrl": None,
                     "imgTitle": None,
                     "style": "List Paragraph"
             },
-            "22": {
+            "21": {
                 "text": "Please note that for optimal viewing, it is best not to use VPN. If the live stream doesn't load when the session starts, please refresh the page or try another browser.",
                     "imgUrl": None,
                     "imgTitle": None,
