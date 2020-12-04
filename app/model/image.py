@@ -8,11 +8,10 @@ class Image(db.Model):
     container = db.Column(db.String(200), unique=False)
     title = db.Column(db.String(200), unique=False)
 
-    def __init__(self, filename, url, container, articleid, title):
+    def __init__(self, filename, url, container, title):
         self.filename = filename
         self.url = url
         self.container = container
-        self.articleid = articleid
         self.title = title 
     def __repr__(self):
         return '<Image %r>' % self.filename

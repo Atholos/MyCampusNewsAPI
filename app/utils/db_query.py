@@ -26,7 +26,7 @@ class DBQuery():
         return article
 
     # 10 newest articles
-    def query_articleID(self):
+    def query_10_articles(self):
         articles = Article.query.order_by(Article.created_at).limit(10).all()
         print("queried for article by id")
         return articles 
@@ -46,8 +46,8 @@ class DBQuery():
         return paragraph
 
     # Get all paragraphs for an article
-    def query_paragraph_for_article(self, article_id):
-        paragraphs = Paragraph.query.filter_by(article_id=(article_id)).all()
+    def query_paragraphs_for_article(self, article_id):
+        paragraphs = Paragraph.query.filter_by(article_id=(article_id)).order_by(Paragraph.order_nr).all()
         return paragraphs
 
      # Header queries

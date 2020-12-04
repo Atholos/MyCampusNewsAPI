@@ -11,7 +11,7 @@ def initialize_routes(API):
     API.add_resource(Home, "/")
     API.add_resource(Highlight, "/highlight")
     #Route with parameters, Used when looking for a specific item, note that post requests include a body anyway
-    API.add_resource(NewsItem, "/newsitem/<string:month>/<int:number>")
+    API.add_resource(NewsItem, "/newsitem/<int:id>")
     API.add_resource(Upload, "/upload")
     API.add_resource(Images, "/images")
     API.add_resource(UploadArticle, "/upload-article")

@@ -1,4 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
+from flask import current_app
 
 db = SQLAlchemy()
 
@@ -14,7 +15,8 @@ def create_db():
     from .paragraph import Paragraph
     from .links import Link
     from .header import Header
-
-    db.drop_all()
+    if (current_app.config["ENV"] == "development"):
+        print("Developing")
+        #db.drop_all()
     db.create_all()
     db.session.commit()

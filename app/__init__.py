@@ -9,10 +9,9 @@ def create_app():
 
     # Creating flask application and setting the correct configurations
     app = Flask(__name__)
-    #print("config: ")
     app.config.from_object("config.default")
     #app.config.from_pyfile(myconfig)
-    #app.config.from_envvar("APP_CONFIG")
+    app.config.from_envvar("APP_CONFIG")
 
     # Initializing database connection
     from app.model.db import initialize_db
@@ -32,11 +31,9 @@ def create_app():
         from app.utils import build_article
         from app.model.db import db, create_db
         create_db()
-
         '''
-        # Register Blueprints
+        Register Blueprints example 
         app.register_blueprint(auth.auth_bp)
-        app.register_blueprint(admin.admin_bp)
         '''
         return app
    

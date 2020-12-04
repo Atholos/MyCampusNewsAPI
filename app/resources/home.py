@@ -6,6 +6,7 @@ class Home(Resource):
 
     @staticmethod
     def get():
-        out = {"Hello": "Welcome to homepage!"}
+        
+        out = {"Usage": "Please use endpoints for data, highlight can be accessed from /highlight, newstitems from /newsitems"}
         return out, 200
         
