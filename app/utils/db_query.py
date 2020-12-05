@@ -13,7 +13,8 @@ class DBQuery():
         author = Author.query.filter_by(displayName=(displayname)).first()
         print("queried for author by displayname")
         return author
-    
+        
+    # Author id query
     def query_authorID(self, author_id):
         author = Author.query.get(author_id)
         print("queried for author by id")
@@ -31,6 +32,11 @@ class DBQuery():
         print("queried for article by id")
         return articles 
 
+    # Highlight article
+    def query_highlight_article(self):
+        article = Article.query.filter_by(highlight=(True)).first()
+        return article
+
     # Image queries
     def query_imageID(self, image_id):
         image = Image.query.get(image_id)
@@ -41,6 +47,7 @@ class DBQuery():
         paragraph = Paragraph.query.get(paragraph_id)
         return paragraph
 
+    # getting one paragraph for an article
     def query_paragraphByArticleID(self, article_id):
         paragraph = Paragraph.query.filter_by(article_id=(article_id)).first()
         return paragraph
@@ -55,6 +62,7 @@ class DBQuery():
         header = Header.query.get(header_id)
         return header
     
+    # Finding the right header for article
     def query_headerByArticleID(self, article_id):
         header = Header.query.filter_by(article_id=(article_id)).first()
         return header
@@ -64,8 +72,9 @@ class DBQuery():
         link = Link.query.get(link_id)
         return link
     
+    # Links for specific paragraph
     def query_linksByParagraphID(self, paragraph_id):
-        link = Link.query.filter_by(paragraph_id=(paragraph_id)).first()
+        link = Link.query.filter_by(paragraph_id=(paragraph_id)).all()
         return link
     
 

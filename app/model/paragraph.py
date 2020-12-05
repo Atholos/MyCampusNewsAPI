@@ -16,4 +16,4 @@ class Paragraph(db.Model):
         self.img_id = imageid
         self.order_nr = ordernr
     def __repr__(self):
-        return '<Image %r>' % self.filename
+        return '<Paragraph %r>' % self.text
