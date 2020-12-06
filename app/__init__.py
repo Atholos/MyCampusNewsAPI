@@ -3,6 +3,7 @@ import os
 from flask import Flask, Blueprint, current_app
 from flask_restful import Api
 from azure.storage.blob import ContainerClient
+from flask_cors import CORS
 
 
 def create_app():
@@ -19,6 +20,8 @@ def create_app():
 
     # Initializing flask-restful API
     api = Api(app)
+    CORS(app)
+
 
     #app.register_blueprint(api_bp)
     with app.app_context():

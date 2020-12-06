@@ -13,7 +13,7 @@ class DBQuery():
         author = Author.query.filter_by(displayName=(displayname)).first()
         print("queried for author by displayname")
         return author
-        
+
     # Author id query
     def query_authorID(self, author_id):
         author = Author.query.get(author_id)
@@ -29,7 +29,7 @@ class DBQuery():
     # 10 newest articles
     def query_10_articles(self):
         articles = Article.query.order_by(Article.created_at).limit(10).all()
-        print("queried for article by id")
+        print("queried for 10 articles")
         return articles 
 
     # Highlight article
@@ -40,6 +40,10 @@ class DBQuery():
     # Image queries
     def query_imageID(self, image_id):
         image = Image.query.get(image_id)
+        return image
+
+    def query_image_filename(self, filename):
+        image = Image.query.filter_by(filename = (filename)).first()
         return image
 
     # Paragraph queries
@@ -57,7 +61,7 @@ class DBQuery():
         paragraphs = Paragraph.query.filter_by(article_id=(article_id)).order_by(Paragraph.order_nr).all()
         return paragraphs
 
-     # Header queries
+    # Header queries
     def query_headerID(self, header_id):
         header = Header.query.get(header_id)
         return header

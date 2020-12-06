@@ -6,7 +6,7 @@ from ..utils.db_query import DBQuery
 class NewsItems(Resource):
     session = DBQuery()
     builder = BuildArticle()
-
+    # Add token check for security?
     def get(self):
         print(id)
         data = {}
@@ -16,5 +16,5 @@ class NewsItems(Resource):
             print(article)
             self.builder.setArticle(article)
             data[article.id] = self.builder.build()
-        out = self.builder.build()
+        out = data
         return out, 200

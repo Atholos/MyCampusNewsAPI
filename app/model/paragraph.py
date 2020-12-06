@@ -3,7 +3,7 @@ from .db import db
 class Paragraph(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
-    text = db.Column(db.String(1000), unique=False)
+    text = db.Column(db.String(2000), unique=False)
     style = db.Column(db.String(120), unique=False)
     article_id = db.Column(db.Integer, db.ForeignKey('article.id'))
     img_id = db.Column(db.Integer, db.ForeignKey('image.id'))

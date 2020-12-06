@@ -6,7 +6,7 @@ from ..utils.db_query import DBQuery
 class NewsItem(Resource):
     session = DBQuery()
     builder = BuildArticle()
-
+    # Add token check for security?
     def get(self, id):
         print(id)
         article = self.session.query_articleID(id)

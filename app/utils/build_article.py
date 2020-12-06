@@ -71,7 +71,7 @@ class BuildArticle():
 
             # Realised afterwards that having article id in links would optimize the database usage and reduce the number of queries. 
             links = self.dbq.query_linksByParagraphID(paragraph.id)
-            # iterating through links and creating a dictionary containing the links for selected paragraph
+            # iterating through links if there are any and creating a dictionary containing the links for selected paragraph
             for link in links:
                 parsed_links[link.id] = {
                     "link": link.link,
@@ -86,7 +86,9 @@ class BuildArticle():
 
             # Initialized variables
             imgUrl = None
-            imgTitle = None 
+            imgTitle = None
+            imgHeigth = None
+            imgWidth = None 
 
             if image != None:
                 imgUrl = self.get_img_url_with_blob_sas_token(image)
@@ -99,8 +101,11 @@ class BuildArticle():
                 "style": paragraph.style,
                 "imgUrl": imgUrl,
                 "imgTitle": imgTitle,
+                "imgHeigth": imgHeigth,
+                "imgWidth": imgWidth,
                 "link_ids": parsed_links
             }
+            
         return parsed_paragraphs
 
 

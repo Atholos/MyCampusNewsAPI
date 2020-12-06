@@ -23,8 +23,8 @@ class DBCreate():
         db.session.commit()
         return article
     
-    def create_image(self, filename, url, container, imgtitle):
-        image = Image(filename, url , container , imgtitle)
+    def create_image(self, filename, url, container, imgtitle, heigth, width):
+        image = Image(filename, url , container , imgtitle, heigth, width)
         db.session.add(image)
         db.session.commit()
         return image

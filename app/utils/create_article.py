@@ -4,10 +4,10 @@ from flask import current_app
 
 
 class CreateArticle():
-
     dbc = DBCreate()
     dbq = DBQuery()
 
+    # Setting the data. Doing this here instead of init enables us to use same class object for multiple article instances. 
     def setData(self,data):
         self.data = data
 
@@ -15,15 +15,25 @@ class CreateArticle():
 
         # creating author, article, image, header, paragraph, links, database objects
 
-        author  = self.dbc.create_author(self.data["author"]["displayName"], self.data["author"]["email"], self.data["author"]["department"], self.data["author"]["jobtitle"])
+        # Checking if author exists
+        author = self.dbq.query_authorName(self.data["author"]["displayName"])
+        # If not then we create one->
+        if(author == None):
+            author = self.dbc.create_author(self.data["author"]["displayName"], self.data["author"]["email"], self.data["author"]["department"], self.data["author"]["jobtitle"])
+
         article = self.dbc.create_article(self.data["title"], self.data["description"], self.data["highlight"], author.id)
+
         # filename, url, container, articleid, imgtitle
-        headerimage = self.dbc.create_image(self.data["headerImgUrl"], None , current_app.config["IMAGE_CONTAINER_NAME"], self.data["headerImgTitle"])
+        headerimage = self.dbq.query_image_filename(self.data["headerImgUrl"])
+        if(headerimage == None):
+            headerimage = self.dbc.create_image(self.data["headerImgUrl"], None , current_app.config["IMAGE_CONTAINER_NAME"], self.data["headerImgTitle"], None, None)
+
+        # Creating header table to connect article and image
         header = self.dbc.create_header(article.id, headerimage.id)
+        # Creating the paragraphs
         paragraphs = self.parse_paragraphs(article.id)
-       
+
         print(author.id, article.id)
-      
         return {"author": author.id, "article": article.id, "headerimage": headerimage.id, "header": header.id, "paragraphs": paragraphs}  
 
      # for parsing the paragraphs from dictionary
@@ -42,7 +52,10 @@ class CreateArticle():
             image = None
             paraid = None
             if imgUrl != None or "":
-                image = self.dbc.create_image(imgUrl, None, current_app.config["IMAGE_CONTAINER_NAME"], articleid, imgTitle)
+                # Checking if image exists already and creating a new image if necessary 
+                image = self.dbq.query_image_filename(imgUrl)
+                if(image == None):
+                    image = self.dbc.create_image(imgUrl, None, current_app.config["IMAGE_CONTAINER_NAME"], imgTitle, None, None)
                 # self, text, style, articleid, imageid, ordernr
                 dbpara = self.dbc.create_paragraph(text, style, articleid, image.id, order_nr)
                 paraid = dbpara.id
