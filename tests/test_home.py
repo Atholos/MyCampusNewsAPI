@@ -17,7 +17,3 @@ def test_home2(client):
 def test_homenot(client):
     res = client.get(url_for("home"))
     assert res is not None
-
-def test_homejson(client):
-    res = client.get(url_for("home"))
-    assert res.json["Hello"] == "Welcome to homepage!"
