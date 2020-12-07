@@ -39,7 +39,7 @@ jobs:
         envkey_FLASK_APP: ${{ secrets.FLASK_APP }}
         envkey_STAGING_DATABASE_URI: ${{ secrets.STAGING_DATABASE_URI }}
         envkey_PROD_DATABASE_URI: ${{ secrets.PROD_DATABASE_URI }}
-        envkey_DEV_DATABASE_URI: "devbase"
+        envkey_DEV_DATABASE_URI: ${{ secrets.STAGING_DATABASE_URI }}
         envkey_NEWS_CONTAINER_NAME: ${{ secrets.NEWS_CONTAINER_NAME }}
         envkey_IMAGE_CONTAINER_NAME: ${{ secrets.IMAGE_CONTAINER_NAME }}
         envkey_TEST_CONTAINER_NAME: ${{ secrets.TEST_CONTAINER_NAME }}
@@ -54,7 +54,8 @@ jobs:
         pip install pytest-cov
         pip install pytest-xdist
         pip install pytest-flask
-        py.test --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html    
+        pip install pytest-dotenv
+        py.test --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html    
   build-and-deploy-container:
     if: startsWith(github.ref, 'refs/tags/v')
     runs-on: ubuntu-latest
