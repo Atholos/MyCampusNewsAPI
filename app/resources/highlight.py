@@ -7,7 +7,7 @@ from ..utils.db_query import DBQuery
 class Highlight(Resource):
     session = DBQuery()
     builder = BuildArticle()
-    
+     # Add token check for security?
     def get(self):
         article = self.session.query_highlight_article()
         print(article)
