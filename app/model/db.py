@@ -15,7 +15,7 @@ def create_db():
     from .paragraph import Paragraph
     from .links import Link
     from .header import Header
-    if (current_app.config["ENV"] == "development"):
+    if (current_app.config["ENV"] == "development" or current_app.config["ENV"] == "staging"):
         print("Developing")
         db.drop_all()
     db.create_all()
