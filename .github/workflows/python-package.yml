@@ -36,7 +36,7 @@ jobs:
       uses: SpicyPizza/create-envfile@v1
       with:
         envkey_APP_CONFIG: ${{ secret.APP_CONFIG_TEST }}
-        envkey_FLASK_APP: ${{ secret.FLASK_APP }}
+        envkey_FLASK_APP: ${{ secrets.FLASK_APP }}
         envkey_STAGING_DATABASE_URI: ${{ secrets.STAGING_DATABASE_URI }}
         envkey_PROD_DATABASE_URI: ${{ secrets.PROD_DATABASE_URI }}
         envkey_DEV_DATABASE_URI: "devbase"
