@@ -10,9 +10,9 @@ def create_app():
 
     # Creating flask application and setting the correct configurations
     app = Flask(__name__)
-    app.config.from_object("config.default")
+    app.config.from_object("config.production")
     #app.config.from_pyfile(myconfig)
-    app.config.from_envvar("APP_CONFIG")
+    #app.config.from_envvar("APP_CONFIG")
 
     # Initializing database connection
     from app.model.db import initialize_db
@@ -21,7 +21,6 @@ def create_app():
     # Initializing flask-restful API
     api = Api(app)
     CORS(app)
-
 
     #app.register_blueprint(api_bp)
     with app.app_context():

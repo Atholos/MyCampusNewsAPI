@@ -31,7 +31,6 @@ setup(
             "azure-storage-blob",
             "python-docx",
             "python-dotenv",
-            "flask-cli",
             "flask-cors"
             "pytest-dotenv"
     ])

@@ -34,15 +34,15 @@ id = uuid.uuid1()
 
 class UploadArticle(Resource):
     # Add token check for security? or secret key in this case 
-    articles = ArticleDicts()
-    newsItems = articles.newsItems
+    #articles = ArticleDicts()
+    #newsItems = articles.newsItems
 
     def post(self):
-        create = CreateArticle()
-        args = parser.parse_args()
-        items = []
-        for item in self.newsItems:
-            create.setData(item)
-            newsitem = create.create_newsitem()
-            items.append(newsitem)
-        return items
+        #create = CreateArticle()
+        #args = parser.parse_args()
+        #items = []
+        #for item in self.newsItems:
+            #create.setData(item)
+            #newsitem = create.create_newsitem()
+            #items.append(newsitem)
+        return {"Error": "not in use right now"}

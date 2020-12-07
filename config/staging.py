@@ -10,3 +10,4 @@ IMAGE_CONTAINER_NAME = os.environ.get("TEST_CONTAINER_NAME") # Azure Container n
 STORAGE_ACCOUNT = os.environ.get("STORAGE_ACCOUNT")  # Azure account name
 STORAGE_KEY = os.environ.get("STORAGE_KEY")   # Azure Storage account access key 
 CONNECTION_STRING = os.environ.get("CONNECTION_STRING")
+SQLALCHEMY_TRACK_MODIFICATIONS = "False"
