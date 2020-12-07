@@ -8,7 +8,7 @@ setup(
     zip_safe=False,
     install_requires=[
             "aniso8601",
-            "click" ,
+            "click",
             "Flask",
             "Flask-RESTful",
             "Flask-SQLAlchemy",
@@ -29,6 +29,8 @@ setup(
             "pylint-flask",
             "flask-bcrypt",
             "azure-storage-blob",
+            "python-docx",
+            "python-dotenv",
+            "flask-cli",
+            "flask-cors"
     ]
-
-  

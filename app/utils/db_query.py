@@ -5,7 +5,7 @@ from ..model.image import Image
 from ..model.paragraph import Paragraph
 from ..model.links import Link
 from ..model.header import Header
-
+# class for all the database queries
 class DBQuery():
 
     # Author queries
