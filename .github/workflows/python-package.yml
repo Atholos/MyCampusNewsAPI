@@ -39,7 +39,7 @@ jobs:
         envkey_FLASK_APP: ${{ secrets.FLASK_APP }}
         envkey_STAGING_DATABASE_URI: ${{ secrets.STAGING_DATABASE_URI }}
         envkey_PROD_DATABASE_URI: ${{ secrets.PROD_DATABASE_URI }}
-        envkey_DEV_DATABASE_URI: "devbase"
+        envkey_DEV_DATABASE_URI: ${{ secrets.STAGING_DATABASE_URI }}
         envkey_NEWS_CONTAINER_NAME: ${{ secrets.NEWS_CONTAINER_NAME }}
         envkey_IMAGE_CONTAINER_NAME: ${{ secrets.IMAGE_CONTAINER_NAME }}
         envkey_TEST_CONTAINER_NAME: ${{ secrets.TEST_CONTAINER_NAME }}
