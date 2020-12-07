@@ -29,7 +29,6 @@ def create_app():
         from app.resources.routes import initialize_routes
         initialize_routes(api)
         #print(current_app.config)
-        from app.utils.upload_utils import Upload_utils
         from app.utils.create_article import CreateArticle
         from app.utils import build_article
         from app.model.db import db, create_db

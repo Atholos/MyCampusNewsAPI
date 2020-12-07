@@ -8,7 +8,6 @@ import random
 import os
 from azure.storage.blob import ContainerClient
 import uuid
-from app.utils.upload_utils import Upload_utils
 from app.utils.create_article import CreateArticle
 from app.utils.article_dicts import ArticleDicts
 
