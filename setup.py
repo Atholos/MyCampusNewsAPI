@@ -33,4 +33,5 @@ setup(
             "python-dotenv",
             "flask-cli",
             "flask-cors"
+            "pytest-dotenv"
     ])
