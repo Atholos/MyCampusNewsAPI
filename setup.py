@@ -33,4 +33,4 @@ setup(
             "python-dotenv",
             "flask-cli",
             "flask-cors"
-    ]
+    ])
