@@ -303,7 +303,7 @@ class UpdatedDicts():
                         "4": {
                             "link": "https://joulupuu.org/muu-suomi/",
                             "link_keyword": "here"
-                        }
+                        },
                         "5": {
                             "link": "https://minunlahjani.fi/joulupuu/",
                             "link_keyword": "Minunlahjani.fi"
