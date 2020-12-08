@@ -5,14 +5,16 @@ This Rest API was built with Flask (Python) and is deployed inside a docker cont
 
 # Running the API in dev environment:
 
-# Install pip and required packages, please note that on windows python is ran with "py" instead of "python" 
+Install pip and required packages, please note that on windows python is ran with "py" instead of "python" 
+
 python -m pip install --upgrade pip
 pip install -r requirements.txt
 
-# Run the app in dev mode:
+Run the app in dev mode:
+
 python -m flask run
 
-# Run with Gunicorn (Note that gunicorn only runs in unix environment like docker containers):
+Run with Gunicorn (Note that gunicorn only runs in unix environment like docker containers):
 gunicorn -w 4 -b :8000 "app:create_app()"
 
 # Building and running inside a container 
