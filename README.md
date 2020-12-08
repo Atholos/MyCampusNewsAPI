@@ -8,6 +8,7 @@ This Rest API was built with Flask (Python) and is deployed inside a docker cont
 Install pip and required packages, please note that on windows python is ran with "py" instead of "python" 
 
 python -m pip install --upgrade pip
+
 pip install -r requirements.txt
 
 Run the app in dev mode:
@@ -15,6 +16,7 @@ Run the app in dev mode:
 python -m flask run
 
 Run with Gunicorn (Note that gunicorn only runs in unix environment like docker containers):
+
 gunicorn -w 4 -b :8000 "app:create_app()"
 
 # Building and running inside a container 
@@ -23,20 +25,25 @@ Installing docker:
 https://docs.docker.com/docker-for-windows/install/
 
 Building docker container image:
+
 docker build .
 
 Running docker container:
+
 docker run --name "yourcontainername" "containerid"
   
 See all images:
+
 docker images -a
   
 Note that you can add tags to your image with -t "tag" after the . , while running you can name your container with --name and it can be whatever you want. you get your container id after building an container from the image
   
 checking for active containers:
+
 docker ps
 
 stopping a container:
+
 docker stop <container>
 
 
