@@ -26,12 +26,12 @@ Building docker container image:
 docker build .
 
 Running docker container:
-docker run --name <yourcontainername> <container>
+docker run --name "yourcontainername" "containerid"
   
 See all images:
 docker images -a
   
-Note that you can add tags to your image with -t <tag> after the . , while running you can name your container with --name and it can be whatever you want. you get your container id after building an container from the image
+Note that you can add tags to your image with -t "tag" after the . , while running you can name your container with --name and it can be whatever you want. you get your container id after building an container from the image
   
 checking for active containers:
 docker ps
@@ -48,11 +48,11 @@ ENV APP_CONFIG="config.development" # config.default loads the default configura
 
 ENV FLASK_APP=app.py # This enables flask to find your app.
 
-ENV DEV_DATABASE_URI="<yourDEVdatabaseURI>" # Your dev database
+ENV DEV_DATABASE_URI="yourDEVdatabaseURI" # Your dev database
   
-ENV PROD_DATABASE_URI="<yourPRODdatabaseURI>" # Your Production database
+ENV PROD_DATABASE_URI="yourPRODdatabaseURI" # Your Production database
   
-ENV STAGING_DATABASE_URI="<yourStagingDatabaseURI>" # Your staging database
+ENV STAGING_DATABASE_URI="yourStagingDatabaseURI" # Your staging database
   
 ENV NEWS_CONTAINER_NAME="newsfileblob" # Your azure container name used for storing data
   
@@ -60,11 +60,11 @@ ENV IMAGE_CONTAINER_NAME="newsimages" # Your azure container name used for stori
   
 ENV TEST_CONTAINER_NAME="testfileblob" # Your azure container used for testing
   
-ENV STORAGE_ACCOUNT="<storageAccount>" # Your storage account 
+ENV STORAGE_ACCOUNT="storageAccount" # Your storage account 
   
-ENV STORAGE_KEY=<KeyToYourStorageAccount> # Key to your storage account
+ENV STORAGE_KEY="KeyToYourStorageAccount" # Key to your storage account
   
-ENV CONNECTION_STRING=<yourconnectionstring> # Storage account connection string
+ENV CONNECTION_STRING="yourconnectionstring" # Storage account connection string
 
 
 # API endpoints:
