@@ -4,17 +4,38 @@ from PIL import Image
 
 class Parse_News():
 
-    newsItem = {
+
+    newsItem = {            
         "paragraphs":{
             
         }
     }
+    def createArticle():
+        article = {
+            "id": self.article.id,
+            "title": self.article.title,
+            "author": {
+                "id": self.author.id,
+                "displayName": self.author.displayName,
+                "email": self.author.email,
+                "department": self.author.department,
+                "jobtitle": self.author.jobtitle
+            },
+            "highlight": self.article.highlight,
+            "description": self.article.description,
+            "created_at": self.article.created_at.strftime("%d-%b-%Y (%H:%M:%S.%f)"),
+            "headerImgUrl": self.headerurl,
+            "headerImgTitle": self.headerImage.title,
+            "paragraphs": self.dictparagraphs,
+        }
+        return article
 
     def printNews(self):
         print(self.newsItem)
 
     def parse_news(self, doc):
         i = 0
+        image_paragraphs = []
         for para in doc.paragraphs:
             rels = para.part.rels
             newpara = {
@@ -22,10 +43,13 @@ class Parse_News():
                 "imgUrl": None,
                 "imgTitle": None,
                 "style": para.style.name,
-            }   
+            }
+            if 'graphicData' in para._p.xml:
+                image_paragraphs.append(para)   
             self.newsItem["paragraphs"][i] = newpara
             i += 1
         rels = document.part.rels
+        print(image_paragraphs)
         print(self.newsItem)
         for rel in rels:
             if rels[rel].reltype == RT.HYPERLINK:
@@ -35,9 +59,9 @@ class Parse_News():
             print (image.height.cm, image.width.cm, image._inline.graphic.graphicData.pic.nvPicPr.cNvPr.name)
 
    
-
-document = Document('Joulupuu - Christmas Tree Campaign 2020 at Espoo Campus until Dec 7.docx')
-document.save('Joulupuu - Christmas Tree Campaign 2020 at Espoo Campus until Dec 7.docx')
+filename = 'Joulupuu - Christmas Tree Campaign 2020 at Espoo Campus until Dec 7.docx'
+document = Document(filename)
+document.save(filename)
 
 parseNews = Parse_News()
 
