@@ -45,27 +45,40 @@ docker stop <container>
 You need .env file to run the app with following contents:
 
 ENV APP_CONFIG="config.development" # config.default loads the default configuration. config.development loads the dev config
+
 ENV FLASK_APP=app.py # This enables flask to find your app.
+
 ENV DEV_DATABASE_URI="<yourDEVdatabaseURI>" # Your dev database
+  
 ENV PROD_DATABASE_URI="<yourPRODdatabaseURI>" # Your Production database
+  
 ENV STAGING_DATABASE_URI="<yourStagingDatabaseURI>" # Your staging database
-ENV NEWS_CONTAINER_NAME="newsfileblob" # Your azure container name used for storing data 
+  
+ENV NEWS_CONTAINER_NAME="newsfileblob" # Your azure container name used for storing data
+  
 ENV IMAGE_CONTAINER_NAME="newsimages" # Your azure container name used for storing images
+  
 ENV TEST_CONTAINER_NAME="testfileblob" # Your azure container used for testing
+  
 ENV STORAGE_ACCOUNT="<storageAccount>" # Your storage account 
+  
 ENV STORAGE_KEY=<KeyToYourStorageAccount> # Key to your storage account
+  
 ENV CONNECTION_STRING=<yourconnectionstring> # Storage account connection string
 
 
 # API endpoints:
 
 Get | For getting todays highlight news article
+
 /highlight
 
 Get | For getting 10 freshest news articles
+
 /newsitems
 
 Get | For getting a news article by ID (This was mostly used for testing but could be utilized later on)
+
 /newsitems/<itemID>
   
 API also requires a header to be sent with: "authorization": "Token"
