@@ -3,6 +3,7 @@ from app.resources.highlight import Highlight
 from app.resources.newsitem import NewsItem
 from app.resources.newsitems import NewsItems
 from app.resources.upload_article import UploadArticle
+from app.resources.news_parser import News_Parser
 
 
 # Initializing the routes for flask API, When adding a new route add it here.
@@ -13,5 +14,6 @@ def initialize_routes(API):
     API.add_resource(NewsItem, "/newsitem/<int:id>")
     API.add_resource(NewsItems, "/newsitems")
     API.add_resource(UploadArticle, "/upload-article")
+    API.add_resource(News_Parser, "/news-parser")
 
    
