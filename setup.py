@@ -33,4 +33,5 @@ setup(
             "python-dotenv",
             "flask-cors"
             "pytest-dotenv"
+            "Pillow"
     ])
