@@ -5,7 +5,7 @@ from flask import current_app
 
 @pytest.fixture
 def app():
-    os.environ["APP_CONFIG"] = "../config/test.py"
+    os.environ["APP_CONFIG"] = "config.test"
     print(os.environ["APP_CONFIG"])
     app = create_app()
     return app
