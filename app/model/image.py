@@ -7,8 +7,8 @@ class Image(db.Model):
     url = db.Column(db.String(300), unique=True)
     container = db.Column(db.String(200), unique=False)
     title = db.Column(db.String(200), unique=False)
-    heigth = db.Column(db.Integer)
-    width =  db.Column(db.Integer)
+    heigth = db.Column(db.Float)
+    width =  db.Column(db.Float)
 
     def __init__(self, filename, url, container, title, heigth, width):
         self.filename = filename

@@ -11,7 +11,7 @@ import uuid
 from app.utils.create_article import CreateArticle
 from app.utils.article_dicts import ArticleDicts
 
-
+'''
 parser = reqparse.RequestParser()
 parser.add_argument("title", type=str, help="title required", required=True)
 parser.add_argument("highlight", type=bool, help="highlight", required=True)
@@ -21,16 +21,16 @@ parser.add_argument("timestamp", type=str,
                     help="timestamp required", required=True)
 parser.add_argument("bannerImgUrl", type=str,
                     help="bannerimng required", required=True)
-#parser.add_argument("description", type=str, help="description required",required=True)
-#parser.add_argument("description", type=str, help="description required",required=True)
-#parser.add_argument("description", type=str, help="description required",required=True)
-#parser.add_argument("description", type=str, help="description required",required=True)
+parser.add_argument("description", type=str, help="description required",required=True)
+parser.add_argument("description", type=str, help="description required",required=True)
+parser.add_argument("description", type=str, help="description required",required=True)
+parser.add_argument("description", type=str, help="description required",required=True)
 parser.add_argument("paragraphs", type=dict,
                     help="paragraphs required", required=True)
 
 
 id = uuid.uuid1()
-
+'''
 
 class UploadArticle(Resource):
     # Add token check for security? or secret key in this case 

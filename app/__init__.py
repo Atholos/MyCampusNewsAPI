@@ -10,8 +10,8 @@ def create_app():
 
     # Creating flask application and setting the correct configurations
     app = Flask(__name__)
-    app.config.from_object("config.development")
-    #app.config.from_envvar("APP_CONFIG")
+    app.config.from_object("config.default") # Getting the default config first to make sure we have one
+    app.config.from_object(os.environ.get("APP_CONFIG")) # Overwriting the default config with one from the Environment variable 
 
     # Initializing database connection
     from app.model.db import initialize_db
@@ -21,7 +21,6 @@ def create_app():
     api = Api(app)
     CORS(app)
 
-    #app.register_blueprint(api_bp)
     with app.app_context():
         # Include our Routes
         from app.resources.routes import initialize_routes
@@ -30,7 +29,7 @@ def create_app():
         from app.utils.create_article import CreateArticle
         from app.utils import build_article
         from app.model.db import db, create_db
-        #Creating the db. Always ran when deployed (It doesn't overwrite the current one. just adds to the model)
+        #Creating the db. dropping the current one if in development or staging
         create_db()
         
         return app

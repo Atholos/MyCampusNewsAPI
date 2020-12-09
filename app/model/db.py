@@ -16,7 +16,7 @@ def create_db():
     from .links import Link
     from .header import Header
     if (current_app.config["ENV"] == "development" or current_app.config["ENV"] == "staging"):
-        print("Developing")
-        #db.drop_all()
-    db.create_all()
-    db.session.commit()
+        print("Developing or staging")
+        db.drop_all()
+        db.create_all()
+        db.session.commit()
