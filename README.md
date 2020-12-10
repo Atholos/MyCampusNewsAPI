@@ -88,4 +88,25 @@ Get | For getting a news article by ID (This was mostly used for testing but cou
 
 /newsitems/<itemID>
   
+POST | For parsing documents as new articles and adding them to database
+
+/news-parser
+
+Following query params are required:
+
+str description: (Short description of the article)
+
+str email: (Author email)
+
+str displayName: (Author displayName)
+
+str department: (Author department)
+
+str jobtitle: (Author jobtitle)
+
+file document: (The docx file you wish to upload)
+  
+  
 API also requires a header to be sent with: "authorization": "Token"
+
+
