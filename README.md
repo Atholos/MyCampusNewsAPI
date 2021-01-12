@@ -1,5 +1,5 @@
 # MyCampusNewsAPI
-News fetching API for Nokia My Campus Project
+News fetching API for Nokia My Campus Project!
 
 This Rest API was built with Flask (Python) and is deployed inside a docker container to azure.
 
